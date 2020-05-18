@@ -12,12 +12,16 @@ export class CounterService {
   inactiveClicked = new EventEmitter<void>();
   constructor() {
     this.activeClicked.subscribe(() => {
-      this.inactiveToActive++;
+      this.inactiveToActive = this.inactiveToActive + 1;
+      console.log('Inactive -> Active : ' + this.inactiveToActive);
+
       alert('Inactive -> Active : ' + this.inactiveToActive);
     });
 
     this.inactiveClicked.subscribe(() => {
-      this.activeToInactive++;
+      this.activeToInactive = this.activeToInactive + 1;
+      console.log('Active -> Inactive : ' + this.activeToInactive);
+
       alert('Active -> Inactive : ' + this.activeToInactive);
     });
   }
